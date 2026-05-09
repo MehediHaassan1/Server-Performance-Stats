@@ -53,3 +53,17 @@ echo "Total Disk : $((TOTAL_DISK / 1024 / 1024))GB"
 echo "Use Disk : $((USE_DISK / 1024 / 1024))GB"
 echo "Use Disk Percent : ${USE_DISK_PERCENT}"
 echo "Free Disk : $((FREE_DISK / 1024 / 1024))GB"
+
+echo ""
+echo "============================"
+echo "Top 5 processes by CPU usage"
+echo "============================"
+
+ps -eo pid,ppid,cmd,%cpu,%mem --sort=-%cpu | head -n 6
+
+echo ""
+echo "==============================="
+echo "Top 5 processes by MEMORY usage"
+echo "==============================="
+
+ps -eo pid,ppid,cmd,%cpu,%mem --sort=-%mem | head -n 6
