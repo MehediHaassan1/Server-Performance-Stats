@@ -36,3 +36,20 @@ echo "Total Memory : $((MEM_TOTAL / 1024))MB"
 echo "Use Memory : $((MEM_USE / 1024))MB"
 echo "Use Memory Percent : $((MEM_USE_PERCENT))%"
 echo "Free Memory : $((MEM_FREE / 1024))MB"
+
+echo ""
+echo "================"
+echo "Total disk usage"
+echo "================"
+
+df -h
+
+TOTAL_DISK=$(df / | awk 'NR==2 {print $2}')
+USE_DISK=$(df / | awk 'NR==2 {print $3}')
+USE_DISK_PERCENT=$(df / | awk 'NR==2 {print $5}')
+FREE_DISK=$(df / | awk 'NR==2 {print $4}')
+
+echo "Total Disk : $((TOTAL_DISK / 1024 / 1024))GB"
+echo "Use Disk : $((USE_DISK / 1024 / 1024))GB"
+echo "Use Disk Percent : ${USE_DISK_PERCENT}"
+echo "Free Disk : $((FREE_DISK / 1024 / 1024))GB"
