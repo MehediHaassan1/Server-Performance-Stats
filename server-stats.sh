@@ -67,3 +67,39 @@ echo "Top 5 processes by MEMORY usage"
 echo "==============================="
 
 ps -eo pid,ppid,cmd,%cpu,%mem --sort=-%mem | head -n 6
+
+echo ""
+echo "=========="
+echo "OS VERSION"
+echo "=========="
+
+cat /etc/os-release | grep PRETTY_NAME
+
+
+echo ""
+echo "======"
+echo "Uptime"
+echo "======"
+
+uptime
+
+echo ""
+echo "============"
+echo "Load Average"
+echo "============"
+
+uptime | awk -F'load average:' '{print $2}'
+
+echo ""
+echo "==============="
+echo "Logged in users"
+echo "==============="
+
+who
+
+echo ""
+echo "====================="
+echo "Failed login attempt"
+echo "====================="
+
+sudo lastb head
